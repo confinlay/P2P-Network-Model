@@ -1,0 +1,40 @@
+**Possible Queries**
+
+Like the moon
+The dark days will pass
+A fallen leaf
+Nothing gold can stay
+Little baby
+In a station of a metro
+Underface
+Drowning
+Someday
+Marigold
+Camouflaged
+Secrets under trees
+
+**Expected outputs**
+Like the moon:
+    "I will be\nlike the moon\nand learn to shine\neven when\nI am not whole."
+The dark days will pass:
+    "There will be dark days,\nwhen you feel alone\nwith your aching heart\nbut that doesn’t mean\nyou will always be.\nThe sun will always\npeer through the clouds.\nLet its light show you\nthe love you have forgotten."
+A fallen leaf:
+    "A trusting little leaf of green, \nA bold audacious frost; \nA rendezvous, a kiss or two, \nAnd youth for ever lost. \nAh, me! \nThe bitter, bitter cost. \n\nA flaunting patch of vivid red, \nThat quivers in the sun; \nA windy gust, a grave of dust, \nThe little race is run. \nAh, me! \nWere that the only one."
+Nothing gold can stay:
+    "Nature's first green is gold,\nHer hardest hue to hold. \nHer early leaf's a flower; \nBut only so an hour. \nThen leaf subsides to leaf. \nSo Eden sank to grief, \nSo dawn goes down to day. \nNothing gold can stay."
+Little baby:
+    "Little baby, oh so small \nOne day you will be big and tall\nI watch you while you laugh and play \nMy love for you grows every day \nI tell you this with my whole heart\nI love you just the way you are"
+In a station of a metro:
+    "The apparition of these faces in the crowd:\nPetals on a wet, black bough."
+Underface:
+    "Underneath my outside face\nhere's a face that none can see.\nA little less smiley,\nA little less sure,\nBut a whole lot more like me"
+Drowning:
+    "They come in waves,\nmy feelings for you.\nAnd not pretty whitecaps\ndancing at my feet.\nBut when I least expect it.\nWhen life seems to be\na quiet stream of continuity.\nThey come to disrupt.\nSo forceful they pull me under,\nso that I am drowning and once again,\ncan’t catch my breath."
+Someday:
+    "Someday you will cry for me\nLike I cried for you.\nSomeday you'll miss me\nLike I missed you.\nSomeday you'll need me \nLike I needed you.\nSomeday you'll love me,\nBut I won't love you."
+Marigold:
+    "Each flower a wilting sun\nThe death of a new day is never kind\nGrief ain’t no song\nNo loss is this romantic"
+Camouflaged:
+    "A trusting little leaf of green, \nA bold audacious frost; \nA rendezvous, a kiss or two, \nAnd youth for ever lost. \nAh, me! \nThe bitter, bitter cost. \n\nA flaunting patch of vivid red, \nThat quivers in the sun; \nA windy gust, a grave of dust, \nThe little race is run. \nAh, me! \nWere that the only one."
+Secrets under trees:
+    "Tiny little secrets\nGet buried in the dirt,\nAnd if they were dug up,\nSomeone would probably get hurt,\nSo leave them safely there,\nTo rot amongst the leaves,\nAdmiring instead,\nThe truth in summer's green trees."
