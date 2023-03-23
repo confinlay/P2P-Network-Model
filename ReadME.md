@@ -1,3 +1,6 @@
+# Introduction
+The following was a project I completed for a Computer Networks module at university. Below is a detailed report on the project, but you can skip to the end for instructions on how to demo the project. [Link to instructions](#instructions)
+
 # Aim
 The aim of this project was to develop a decentralised, distributed file transfer network capable of allowing nodes to access files from the broader internet by requesting them from their local peers. Inspired by IPFS, this simple model was designed with a specific use case in mind: Taiwan.
 
@@ -27,7 +30,9 @@ At a high-level, our model operates on a consistent request-response basis. This
 # Algorithm
 
 While our network is a peer-to-peer network, each peer will have a client and server script to run depending on its activities.
-SERVER SIDE
+
+#### SERVER SIDE
+
 * Server binds to a socket/address and listens.
 * When a client attempts to connect, the server starts a new thread and runs the handle_client() subroutine.
 * While the client is connected, the server waits to receive a message.
@@ -35,7 +40,9 @@ SERVER SIDE
 *	The server checks the file name against its database of files and then against its database of file locations, updating the relevant Boolean variables as required.
 *	The server sends back a message to the client, either with the content of the requested file, the peer which has the file, or a FILE NOT FOUND message along with the address of its closest peer.
 *	The server will loop infinitely, listening for incoming clients and starting new threads to handle each connection.
-CLIENT SIDE 
+
+#### CLIENT SIDE 
+
 *	The following runs in an infinite loop:
 *	The client creates a socket to receive data to.
 *	(While in our ideal network each peer will know the addresses of a certain number of other peers and will be passed the addresses of peers not in its immediate network, in our demonstration model the client knows the addresses of all the peers on the network and will simply be passed information about which ones to connect to as it interacts with various peers.)
@@ -48,6 +55,13 @@ CLIENT SIDE
 *	The client waits to receive a message from the server and prints this for the user.
 *	The loop repeats until the until the user types DISCONNECT
 
+# Implementation details
+
+My model was implemented using socket programming in Python. This involved using the socket library built-in to the python programming language. The use of this library was minimal to our design, functions called were limited to socket binding, connecting client to peer and vice versa, and sending messages. All HTTP-style messaging and header configuration was done explicitly for this use case.
+
+To model our distributed hash table as well as the locating, requesting, and receiving of files, I used the titles and contents of 12 poems as my key-value pairs. This means that the user requests a poem using its title and, if the peer has the file, it will return the contents of the poem via the command line. This decision was made so that my model was accessible for testing, and so that it was immediately obvious whether the network was functioning correctly or not. In a real-life application, these pairs would be replaced with actual files and corresponding hashes. 
+
+While my video demo showcased my distributed network transferring files between 4 devices, my implementation is set up by default to run locally. This means that all 6 peers running the server script will be located at ports 5050-5055 on a single device, and the peer running the client script will be located on the same device. This can be easily changed by altering the database of peer addresses, as was done for my demo.
 
 # Instructions
 ### Required downloads
