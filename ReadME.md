@@ -1,3 +1,54 @@
+# Aim
+The aim of this project was to develop a decentralised, distributed file transfer network capable of allowing nodes to access files from the broader internet by requesting them from their local peers. Inspired by IPFS, this simple model was designed with a specific use case in mind: Taiwan.
+
+# Use Case 
+Taiwan’s internet access is very vulnerable, as the island nation relies on a small number of underwater fibre-optic lines to connect it with the internet. In the increasingly likely scenario that Taiwan is engaged in conflict by China, analysts predict that China would likely target Taiwan’s cable landing stations, forcing Taiwan to spend it’s time restoring communication with the rest of the world rather than coordinating a defence strategy. 
+
+In 2006 a number of Taiwan’s cables were cut as a result of an earthquake, and just this year Japanese repair operations on the Trans-Pacific express were halted by Chinese military drills, so the aforementioned worst case scenario is certainly not out of the question.
+
+Low-orbit satellites (provided by Starlink) have been successfully used in Ukraine throughout their conflict with Russia to provide network access despite damaged or destroyed network infrastructure. Taiwan has a different problem, however, as it is not individual areas that may be cut off from the rest of the national network but instead the entire country that may be cut off from the rest of the world. 
+
+Although Taiwan’s space agency has announced plans to develop low-Earth orbit satellite communications for the country, this will likely take years. While traditional geostationary satellite technology can maintain some level of internet access for the most pressing communication requirements, it is not likely to be able to provide sufficient internet speeds to a sufficient portion of the population. Since the national network may still remain connected internally, it was my proposition that a decentralised, distributed data fabric be used to extend this intermittent satellite connection to the entire network. 
+
+# Functional Description
+At a high-level, our model operates on a consistent request-response basis. This means that the client will, at every stage, decide which peer to connect to and will switch to a different peer if they wish depending on information given to them by the current peer. At a later stage of our design, this redirecting would not be visible to the user. However, for demonstration purposes, connecting with peers will be a manual process. 
+
+
+
+ The order of operations is as follows:
+1)	User chooses a peer to connect to, a default option is available.
+2)	User requests the file they want
+3)	The peer responds in one of 3 ways:
+  a.	The peer has the file and provides the contents of the file.
+  b.	The peer does not have the file, but knows which other peers can provide the file.  It passes this information to the user.
+  c.	The peer does not have the file and does not know where it is located. It recommends that the user try its nearest peer.
+4)	The user either has the file they want, or must disconnect from the current peer and connect to a new one based on the advice given from the last peer.
+
+# Algorithm
+
+While our network is a peer-to-peer network, each peer will have a client and server script to run depending on its activities.
+SERVER SIDE
+* Server binds to a socket/address and listens.
+* When a client attempts to connect, the server starts a new thread and runs the handle_client() subroutine.
+* While the client is connected, the server waits to receive a message.
+*	As long as the message received is not a disconnect message, the server assumes it is a file name.
+*	The server checks the file name against its database of files and then against its database of file locations, updating the relevant Boolean variables as required.
+*	The server sends back a message to the client, either with the content of the requested file, the peer which has the file, or a FILE NOT FOUND message along with the address of its closest peer.
+*	The server will loop infinitely, listening for incoming clients and starting new threads to handle each connection.
+CLIENT SIDE 
+*	The following runs in an infinite loop:
+*	The client creates a socket to receive data to.
+*	(While in our ideal network each peer will know the addresses of a certain number of other peers and will be passed the addresses of peers not in its immediate network, in our demonstration model the client knows the addresses of all the peers on the network and will simply be passed information about which ones to connect to as it interacts with various peers.)
+*	The client asks for the user to input the peer it wishes to connect to.
+*	The client connects to this peer.
+*	Loop:
+*	The client asks the user to input a message for the server.
+*	The send(msg) subroutine is called.
+*	The header and subsequently the message are both encoded and sent to the server.
+*	The client waits to receive a message from the server and prints this for the user.
+*	The loop repeats until the until the user types DISCONNECT
+
+
 # Instructions
 ### Required downloads
 **Python:** ensure you have the most recent version of python downloaded. This can be downloaded from the following link https://www.python.org/downloads/.
