@@ -1,6 +1,6 @@
 # Instructions
 ### Required downloads
-**Python: **ensure you have the most recent version of python downloaded. This can be downloaded from the following link https://www.python.org/downloads/.
+**Python:**ensure you have the most recent version of python downloaded. This can be downloaded from the following link https://www.python.org/downloads/.
 
 *That is all, everything is run from the command line. If you are on mac and macOS prompts you to install xCode dev tools when trying to run python scripts from the command line, you can instead run the scripts by right clicking on them in finder and selecting "open with Python Launcher"*.
 
